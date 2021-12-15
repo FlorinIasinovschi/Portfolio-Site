@@ -1,0 +1,21 @@
+@import '../../global.scss';
+
+.contact {
+//background: lightcyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h2 {
+    @include sectionTitle;
+  }
+  .wrapper {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    //background: chocolate;
+
+  }
+}

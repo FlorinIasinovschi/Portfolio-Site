@@ -1,0 +1,64 @@
+@import '../../global.scss';
+
+.intro {
+  width: 100%;
+  height: 100px;
+  background: #5887FF;
+  display: flex;
+
+  .left {
+    flex: 0.5;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: white;
+    .intro-shape{
+
+      width: 50%;
+      height: 50%;
+      background:white;
+      border-radius: 100%;
+      transform-origin: right;
+
+      #particles-box {
+        margin:0;
+        //background: green;
+      }
+    }
+  }
+  .right {
+    flex: 0.5;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+
+    .wrapper{
+      display: inline-block;
+      background: white;
+      height: auto;
+      margin-top: 0px;
+      margin-bottom: 10%;
+      
+      h1{
+        font-size: 4em;
+        //background: green;
+        margin-top: .5em;
+        margin-bottom: 0px;
+      }
+      h2{
+        color: $mainColor;
+        font-size: 3em;
+        margin: 0px;
+        //background: hotpink;
+      }
+      h3{
+        //background: red;
+        font-weight: 500;
+        font-size: 2em;
+        margin: 0px;
+      }
+    }
+  }
+}

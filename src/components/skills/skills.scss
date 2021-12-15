@@ -1,0 +1,42 @@
+@import '../../global.scss';
+
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    @include sectionTitle;  
+  }
+  .wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:40%;
+    height: auto;
+    margin: 0;
+    //background: rgb(117, 117, 117);
+    .html,.css,.javascript,.react {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      background: rgb(255, 255, 255);
+      box-shadow: 0 2px 4px rgb(224, 224, 224);
+      border-radius: 5px;
+      width: 23.5%;
+      height: 150px;
+      margin: 5px 0 5px 0;
+      h3 {
+        font-size: 1.2em;
+        margin: 0 0 0 0;
+      }
+      #img-react , #img-html, #img-css, #img-javascript{
+        width: 35%;
+        //height: 100%;
+      }
+    }
+
+
+  }
+}

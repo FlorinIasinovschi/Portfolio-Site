@@ -1,0 +1,73 @@
+@import '../../global.scss';
+
+.topbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #edf2f4;
+  color: $mainColor;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+    .wrapper {
+      position: relative;
+      //background: red;
+      height: 100%;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .left {
+        position: absolute;
+        left: 0;
+        //background: chocolate;
+
+        #logo {
+          font-size: 40px;
+          font-weight: 700;
+          text-decoration: none;
+          color: black;
+        }
+      }
+
+      .right {
+        height: auto;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //background: rgb(15, 72, 179);
+        
+
+        .nav-menu {
+          position: absolute;
+          right: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items:center;
+          //background: yellowgreen;
+          a {
+            //background: palevioletred;
+            margin: 0 3rem 0 0;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+            color: $mainColor;
+            &:hover {
+              color:rgb(71, 208, 250);
+            }
+          }
+         
+
+          
+
+        }
+        
+      }
+
+
+    }    
+}

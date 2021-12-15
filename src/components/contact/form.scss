@@ -1,0 +1,60 @@
+@import '../../global.scss';
+
+
+.contact-form {
+  width: 100%;
+
+  .wrapper {
+    width: 500px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-evenly;
+    //background: rgb(238, 160, 160);
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      //background: cornflowerblue;
+      button {
+        @include button;
+        font-size: 1em;
+        width: 20%;
+      }
+    }
+    textarea {
+      resize: vertical;
+      width: 90%;
+      border-radius: 5px;
+      border: 1px solid grey;
+    
+    }
+    .name, .email, .message {
+      display: flex;
+      //background: cornflowerblue;
+      height: auto;
+      width: 100%;
+      margin: 0 0 20px 0;
+      //padding: 5px;
+      flex-direction: column;
+      align-items: flex-start;
+      input {
+        width: 90%;
+        height: 2.5em;
+        border-radius: 5px;
+        border: 1px solid grey;
+        padding-left: .5em;
+        font-size: 1em;
+        font-weight: 400;
+        input:focus {
+          border:2px solid $mainColor !important;
+        }
+      }
+      h3 {
+        font-weight: 500;
+        margin: 0 0 .5em 0;
+      }
+    }
+  }
+}
