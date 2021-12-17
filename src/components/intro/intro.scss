@@ -16,10 +16,10 @@
     .intro-shape{
 
       width: 50%;
-      height: 50%;
-      background:white;
-      border-radius: 100%;
-      transform-origin: right;
+      height: auto;
+      //background:rgb(190, 130, 130);
+      //border-radius: 100%;
+      //transform-origin: right;
 
       #particles-box {
         margin:0;
@@ -58,6 +58,9 @@
         font-weight: 500;
         font-size: 2em;
         margin: 0px;
+        span {
+          color : $mainColor;
+        }
       }
     }
   }

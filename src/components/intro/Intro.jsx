@@ -2,6 +2,7 @@ import './intro.scss';
 import { ParticlesBG } from './Particles';
 import { init } from 'ityped';
 import { useEffect, useRef } from 'react';
+import { Shape3D } from './Shape3D';
 
 export default function Intro() {
   const textRef = useRef();
@@ -10,14 +11,21 @@ export default function Intro() {
 
 
   }, [])
+
+
+
+
   return (
 
     <div className='intro' id='intro'>
       <div className='left'>
+
         <div className='wrapper'></div>
         <div className='intro-shape'>
           <div id="particles-box">
-            <ParticlesBG />
+            <Shape3D />
+
+            {/* <ParticlesBG /> */}
           </div>
 
         </div>
