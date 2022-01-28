@@ -5,22 +5,26 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: white;
   h2 {
+    z-index: 2;
+
     @include sectionTitle;
   }
   .wrapper {
+    z-index: 2;
+
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 33%;
+    width: 35%;
     height: auto;
 
     .description {
       font-size: 1em;
       text-align: center;
       word-break: break-word;
+      color : $textColor;
     }
   }
 }

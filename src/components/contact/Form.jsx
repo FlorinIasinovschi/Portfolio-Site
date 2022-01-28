@@ -51,7 +51,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <div>
-        <form class="contact-form" onSubmit={this.handleSubmit}>
+        <form className="contact-form" onSubmit={this.handleSubmit}>
           <div className="wrapper">
             <div className="name">
               <h3>Name</h3>

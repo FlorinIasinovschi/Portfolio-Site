@@ -6,11 +6,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #edf2f4;
+  background: $navbarColor;
   color: $mainColor;
   position: fixed;
   top: 0;
   z-index: 2;
+  animation: navbar-anim 500ms ease-in;
     .wrapper {
       position: relative;
       //background: red;
@@ -29,7 +30,7 @@
           font-size: 40px;
           font-weight: 700;
           text-decoration: none;
-          color: black;
+          color: $titleColor;
         }
       }
 
@@ -52,22 +53,25 @@
           a {
             //background: palevioletred;
             margin: 0 3rem 0 0;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 600;
             text-decoration: none;
             color: $mainColor;
             &:hover {
-              color:rgb(71, 208, 250);
+              color: $specialColor;
             }
           }
-         
-
-          
-
         }
-        
       }
-
-
     }    
+}
+
+@keyframes navbar-anim {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -1,41 +1,24 @@
 import './intro.scss';
-import { ParticlesBG } from './Particles';
-import { init } from 'ityped';
 import { useEffect, useRef } from 'react';
-import { Shape3D } from './Shape3D';
 
 export default function Intro() {
-  const textRef = useRef();
-  useEffect(() => {
-    init(textRef.current, { showCursor: false, strings: ['Developer', 'Desinger', 'Content Creator', 'Scopatore di Nunzia'] })
-
-
-  }, [])
-
-
 
 
   return (
 
     <div className='intro' id='intro'>
+      {/* <BlobAnimation color="#3777FF" path1={wave1Path1} path2={wave1Path1} scale={2} cssref="blob-intro-1" wave /> */}
       <div className='left'>
 
         <div className='wrapper'></div>
-        <div className='intro-shape'>
-          <div id="particles-box">
-            <Shape3D />
 
-            {/* <ParticlesBG /> */}
-          </div>
-
-        </div>
 
       </div>
       <div className='right'>
         <div className='wrapper'>
           <h2>Hey there!</h2>
           <h1>I'm Florin</h1>
-          <h3>Freelance <span ref={textRef}></span></h3>
+          <h3><span >Front End </span>Developer</h3>
         </div>
       </div>
 

@@ -7,7 +7,7 @@ export default function About() {
       <div className='wrapper'>
 
         <div className='description'>I'm a self taughth Web Developer with a background in 3D modeling
-          and Realtime Engines. My goal is to create awesome projetcs and learn as much as
+          and Realtime Art. My goal is to create awesome projetcs and learn as much as
           I can through my journey.
         </div>
       </div>

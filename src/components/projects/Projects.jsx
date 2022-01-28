@@ -1,34 +1,67 @@
 import './projects.scss'
+import '../../global.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import BlobAnimation from '../animations/BackgroundAnimation'
+import { blob1Path1, blob1Path2 } from '../data/svgData'
+import ReactPlayer from 'react-player';
 
-export default function Projects() {
+
+export default function Projects({ title, techStack, description, previewImg, sectionTitle, video, urlDemo, urlCode }) {
+
+  const openLink = (btn) => {
+    if (btn === "demo") {
+      window.open(urlDemo);
+    }
+    if (btn === "code") {
+      window.open(urlCode);
+    }
+
+  }
+
   return (
     <div className='projects' id='projects'>
-      <h2>Projects</h2>
-
+      {sectionTitle && <h2 className='section-title'>Projects</h2>}
+      {/* <BlobAnimation color="#669cff" path1={blob1Path1} path2={blob1Path2} scale={1} cssref="blob-prj-1" /> */}
       <div className="wrapper">
-        <div className="container1">
-          <div className="pro1">
-            <div className="window"></div>
-            <div className="btn-container">
-              <button>Live Demo</button>
-              <button>Github Repo</button>
-            </div>
+        <h2 className='project-title'>{title}</h2>
+        {video &&
+          <div className="preview-video">
+            <ReactPlayer className="project-video"
+              url={"/videos/video_ecommerce.flv"}
+              width={"100%"}
+              height={"100%"}
+              playing={true}
+              loop={true}
+              muted={true}
+            />
           </div>
+        }
 
-          <div className="pro2">
-            <button></button>
-            <button></button>
-          </div>
+        {previewImg && <div className="preview-img">
+
+          <img src={previewImg} alt="preview-img" className='project-img' />
+
+        </div>}
+        <div onClick={() => openLink("code")} className="buttons">
+          <button>Code Repo
+            <FontAwesomeIcon icon={faGithub} className='btn-icon' />
+          </button>
+          <button onClick={() => openLink("demo")} >Live Demo
+            <FontAwesomeIcon icon={faEye} className='btn-icon' />
+          </button>
+        </div>
+        <div className="tech-stack">
+          {techStack.map(el => <span key={el}>{el}</span>)}
+        </div>
+        <div className="description">
+          {description}
 
         </div>
-        <div className="container2">
-          <div className="pro3"></div>
-          <div className="pro4"></div>
 
-        </div>
+
       </div>
-
-
     </div>
   )
 }

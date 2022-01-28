@@ -3,6 +3,7 @@
 
 .contact-form {
   width: 100%;
+  margin-bottom: 100px;
 
   .wrapper {
     width: 500px;
@@ -24,10 +25,11 @@
       }
     }
     textarea {
-      resize: vertical;
+      resize: none;
       width: 90%;
       border-radius: 5px;
-      border: 1px solid grey;
+      background: $techStackColor;
+      border: 1px solid $textColor;
     
     }
     .name, .email, .message {
@@ -39,16 +41,19 @@
       //padding: 5px;
       flex-direction: column;
       align-items: flex-start;
+      color: $textColor;
       input {
+        background: $techStackColor;
+        color: $titleColor;
         width: 90%;
         height: 2.5em;
         border-radius: 5px;
-        border: 1px solid grey;
+        border: 1px solid $textColor;
         padding-left: .5em;
         font-size: 1em;
         font-weight: 400;
         input:focus {
-          border:2px solid $mainColor !important;
+          border:2px solid $techStackColor !important;
         }
       }
       h3 {

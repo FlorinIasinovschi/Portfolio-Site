@@ -9,9 +9,9 @@ export default function Topbar() {
         </div>
         <div className='right'>
           <div className='nav-menu'>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </div>
 
