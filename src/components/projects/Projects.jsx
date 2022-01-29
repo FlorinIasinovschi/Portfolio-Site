@@ -53,7 +53,10 @@ export default function Projects({ title, techStack, description, previewImg, se
           </button>
         </div>
         <div className="tech-stack">
-          {techStack.map(el => <span key={el}>{el}</span>)}
+          {techStack.map((el) => <div key={el} className="stackDiv">
+            <span>{el}</span>
+          </div>)}
+
         </div>
         <div className="description">
           {description}

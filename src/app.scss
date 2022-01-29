@@ -1,4 +1,5 @@
 @import '../src/global.scss';
+@import '/src/responsive/breakpoints.scss';
 
 .app {
   scroll-behavior: smooth;
@@ -8,27 +9,6 @@
   // overflow-x: hidden;
   // overflow-y: auto;
 
-  .blob-intro-1 {
-    //background: coral ;
-    z-index: 20;
-    position: absolute;
-    left: 0%;
-    top: 0%;
-  }
-  .blob-prj-1 {
-    //background: coral ;
-    z-index: 10;
-    position: absolute;
-    right: -5%;
-    //top: 10%;
-  }
-  .blob-prj-2 {
-    //background: coral ;
-    z-index: 10;
-    position: absolute;
-    right: -5%;
-    //top: 10%;
-  }
 
   .webgl-background {
     position: fixed;
@@ -52,21 +32,19 @@
       scroll-behavior: smooth;
       &::-webkit-scrollbar {
         //display: none;
-
       }
+      
+
        > *{
           width: 100%;
           height: calc(100vh - 70px);
+          @include media("<=bigPhone") {
+            height: auto;
+          }
+    
           
        }
-       .section-intro {
-        // z-index: 0;
-       }
-       .blob-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-         
-       }
+       
+       
     }
 }

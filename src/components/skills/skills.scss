@@ -1,22 +1,31 @@
 @import '../../global.scss';
+@import '../../responsive/breakpoints.scss';
 
 .skills {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
   h2 {
     z-index: 2;
 
     @include sectionTitle;  
+    
   }
   .container {
 
-    //background: rgb(182, 182, 182);
-    width:40%;
+    // background: rgb(182, 182, 182);
+    width: 40%;
+    height: auto;
+    @include media("<=bigPhone") {
+      width: 90%;
+      min-height: calc(70vh - 70px);
+    }
     .subtitle {
       margin-top: 50px;
       color: $subTitleColor;
+      
     }
 
 
@@ -29,7 +38,10 @@
       width:100%;
       height: auto;
       margin: 0;
-      //background: rgb(117, 117, 117);
+      // background: rgb(117, 117, 117);
+      @include media("<=bigPhone") {
+        margin-bottom: 20%;
+      }
       
       .html,.css,.javascript,.react {
         display: flex;
@@ -42,18 +54,31 @@
         width: 23.5%;
         height: 150px;
         margin: 5px 0 5px 0;
+        @include media("<=bigPhone") {
+          height: 90px;
+        }
 
         h3 {
           font-size: 1.2em;
           margin: 0 0 0 0;
           color: $textColor;
+          @include media("<=bigPhone") {
+            font-size: .8em;
+
+          }
         }
         #img-react , #img-html, #img-css, #img-javascript{
           width: 35%;
           //height: 100%;
+          @include media("<=bigPhone") {
+            width: 50%;
+          }
         }
         #img-express {
           width: 65%;
+          @include media("<=bigPhone") {
+            width: 85%;
+          }
         }
       }
   }

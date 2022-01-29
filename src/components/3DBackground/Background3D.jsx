@@ -1,21 +1,34 @@
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import Shape3D from './Shape3D';
-import { useHelper } from "@react-three/drei"
-import { PointLightHelper } from 'three';
+import { useHelper, PerspectiveCamera } from "@react-three/drei"
+import { PointLightHelper, MathUtils } from 'three';
 
 
 
 
 
-const Scene = () => {
-  const pointLight = useRef()
+const Scene = (props) => {
+  // const pointLight = useRef()
   const objYDistance = 3;
   const sortingVisualizerDist = 2;
   const unsortedColor = "#330091"
   const sortedColor = "#008a73"
+  const phoneWidth = props.phoneWidth
 
-  useHelper(pointLight, PointLightHelper, 1, "hotpink")
+  // useHelper(pointLight, PointLightHelper, 1, "hotpink")
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleWindowWidth = () => {
+      setWindowWidth(window.innerWidth / 1000)
+      console.log(windowWidth)
+
+    }
+    handleWindowWidth()
+
+    window.addEventListener('resize', handleWindowWidth)
+  }, [windowWidth])
 
 
 
@@ -26,8 +39,11 @@ const Scene = () => {
       {/* <directionalLight position={[2, .5, 1]} intensity={3} /> */}
 
       {/* INTRO */}
-      <Shape3D position={[-1.1, 0 * objYDistance, 0]} rotAxis="y" scale={[.35, .35, .35]} color={"#280068"}
-        speed={0.004} rotation={[-.5, 0, 0]} shape="torusKnot" radius={[50]} mat={"standard"} />
+      {!phoneWidth && <Shape3D position={[-1.1, 0 * objYDistance, 0]} rotAxis="y" scale={[.35, .35, .35]} color={"#280068"}
+        speed={0.004} rotation={[-.5, 0, 0]} shape="torusKnot" radius={[50]} mat={"standard"} />}
+
+      {phoneWidth && <Shape3D position={[0, 0 * objYDistance + .2, 0]} rotAxis="y" scale={[.25, .25, .25]} color={"#280068"}
+        speed={0.004} rotation={[-.5, 0, 0]} shape="torusKnot" radius={[50]} mat={"standard"} />}
 
       {/* PROJECTS */}
       <Shape3D position={[-4, -1 * objYDistance, -2]} rotAxis="y" scale={[0.3, .7, 0.3]}
@@ -38,35 +54,39 @@ const Scene = () => {
 
       {/* SORTING VISUALIZER */}
       {/* LEFT */}
-      <Shape3D position={[-2, -1 * objYDistance - sortingVisualizerDist, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
+      {!phoneWidth && <><Shape3D position={[-windowWidth, -1 * objYDistance - sortingVisualizerDist, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
         color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[-2, -1 * objYDistance - sortingVisualizerDist - 0.13, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
-        color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[-2, -1 * objYDistance - sortingVisualizerDist - 0.26, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
-        color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[-2, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
-        color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[-1.5, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.8, .1, 0.3]}
-        color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[-2, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.9, .1, 0.3]}
-        color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[-windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.13, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
+          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[-windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.26, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
+          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[-windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
+          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[-windowWidth + 0.2, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.6, .1, 0.3]}
+          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[-windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.9, .1, 0.3]}
+          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /></>}
       {/* RIGHT */}
-      <Shape3D position={[2, -1 * objYDistance - sortingVisualizerDist, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
+      {!phoneWidth && <><Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
         color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[2, -1 * objYDistance - sortingVisualizerDist - 0.13, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
-        color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[2, -1 * objYDistance - sortingVisualizerDist - 0.26, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
-        color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[2, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
-        color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[2, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
-        color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-      <Shape3D position={[1.5, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.8, .1, 0.3]}
-        color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.13, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
+          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.26, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
+          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
+          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
+          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
+        <Shape3D position={[+windowWidth - 0.2, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.6, .1, 0.3]}
+          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /> </>}
 
 
       {/* SKILLS */}
+      {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.7, 1]} scale={[.15, 1.2, .2]}
+        color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
 
+      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.3, 0]} scale={[.15, 1.2, .2]}
+        color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
 
 
       {/* ABOUT ME */}
@@ -78,13 +98,16 @@ const Scene = () => {
       {/* CONTACT ME */}
       {/* WAVES */}
       <Shape3D position={[0, -1 * objYDistance - 13.4, 0]} scale={[1, 1, 1]}
-        color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} wave />
+        color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} />
       <Shape3D position={[0, -1 * objYDistance - 13.4, -1]} scale={[1, 1.5, 1]}
-        color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} wave />
+        color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} />
 
-      {/* SIGN */}
-      {/* <Shape3D position={[-2, -1 * objYDistance - 13, -0.5]} scale={[.2, 5.2, .2]}
-        color={"#c52700"} speed={0.000} rotation={[0, -0.3, 0]} shape="box" mat={"wood"} /> */}
+
+      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 11.3, 0]} scale={[.5, 1, 1]}
+        color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} />}
+      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 11.3, -1]} scale={[.8, 1.5, 1]}
+        color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} />}
+
 
 
 
@@ -121,10 +144,70 @@ const Scene = () => {
 
 export default function Background3D({ scrolling }) {
 
+
+
+
   const objYDistance = 3;
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+  const [cameraSmall, setcameraSmall] = useState(false)
+
+  const fov = 35;
+  const aspectRatio = 16 / 9;
+
+  useEffect(() => {
+    const handleWindowWidth = () => {
+
+      if (window.innerWidth <= 500) {
+        setcameraSmall(true)
+        console.log("small");
+      }
+      else {
+        setcameraSmall(false)
+        console.log("big");
+
+      }
+    }
+    handleWindowWidth()
+
+    window.addEventListener('resize', handleWindowWidth)
+  }, [])
+
 
 
   function Dolly() {
+
+    const { camera } = useThree()
+
+
+    // useEffect(() => {
+    //   // camera.fov = 100
+
+    //   const handleResize = () => {
+
+    //     if (window.innerWidth > 1000) {
+
+
+    //       if (camera.aspect > aspectRatio) {
+    //         // window too large
+    //         camera.fov = fov;
+
+    //       } else {
+    //         // window too narrow
+
+    //         const cameraHeight = Math.tan(MathUtils.degToRad(fov / 2));
+    //         const ratio = camera.aspect / aspectRatio;
+    //         const newCameraHeight = cameraHeight / ratio;
+    //         camera.fov = MathUtils.radToDeg(Math.atan(newCameraHeight)) * 2;
+    //       }
+
+    //       console.log(window.innerWidth)
+    //     }
+    //   }
+    //   window.addEventListener('resize', handleResize)
+    // })
+
     // This one makes the camera move with the scrolls
     useFrame(({ camera }) => {
       camera.position.y = - scrolling / window.innerHeight * objYDistance;
@@ -135,10 +218,13 @@ export default function Background3D({ scrolling }) {
 
   return (
     <Canvas
-      camera={{ fov: 35, aspect: 16 / 9, near: 0.1, far: 100, position: [0, -2 * scrolling, 6] }}
+
+    // camera={{ fov: 35, aspect: windowWidth / windowHeight, near: 0.1, far: 100, position: [0, -2 * scrolling, 6] }}
     >
+      <PerspectiveCamera fov={35} aspect={16 / 9} near={0.1} far={100} position={[0, -2 * scrolling, 6]} makeDefault={!cameraSmall} />
+      <PerspectiveCamera fov={35} aspect={windowWidth / windowHeight} near={0.1} far={100} position={[0, -2 * scrolling, 5]} makeDefault={cameraSmall} />
       <Dolly />
-      <Scene />
+      <Scene phoneWidth={cameraSmall} />
     </Canvas>
 
   )

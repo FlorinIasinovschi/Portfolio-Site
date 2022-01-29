@@ -57,7 +57,7 @@ export default function Skills() {
           </div>
           <div className="css">
             <img src={mongodb} alt="" id='img-css' />
-            <h3>mongoDB</h3>
+            <h3>MongoDB</h3>
           </div>
           <div className="javascript">
             <img src={expressLogo} alt="" id='img-express' />

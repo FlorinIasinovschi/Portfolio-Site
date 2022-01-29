@@ -1,27 +1,46 @@
 @import '../../global.scss';
+@import '../../responsive/breakpoints.scss';
 
 
 .contact-form {
-  width: 100%;
   margin-bottom: 100px;
+  width: 25vw;
+  @include media("<=bigPhone") {
+    width: 90vw;
+    margin-bottom: 5vh;
+
+  }
 
   .wrapper {
-    width: 500px;
+    width:100%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: space-evenly;
-    //background: rgb(238, 160, 160);
+    box-sizing: border-box;
+    padding: 1%;
+    // background: rgb(238, 160, 160);
+    @include media("<=bigPhone") {
+      justify-content: flex-start;
+    height: auto;
+      
+    }
     .btn {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       width: 100%;
       //background: cornflowerblue;
+      @include media("<=bigPhone") {
+        margin: 3vh 0 0 0;
+      }
       button {
         @include button;
         font-size: 1em;
         width: 20%;
+        @include media("<=bigPhone") {
+          width: 40%;
+          }
       }
     }
     textarea {
@@ -34,7 +53,7 @@
     }
     .name, .email, .message {
       display: flex;
-      //background: cornflowerblue;
+      // background: cornflowerblue;
       height: auto;
       width: 100%;
       margin: 0 0 20px 0;
@@ -42,6 +61,9 @@
       flex-direction: column;
       align-items: flex-start;
       color: $textColor;
+      @include media("<=bigPhone") {
+        margin: 3vh 0 0 0;
+      }
       input {
         background: $techStackColor;
         color: $titleColor;
@@ -55,6 +77,7 @@
         input:focus {
           border:2px solid $techStackColor !important;
         }
+        
       }
       h3 {
         font-weight: 500;

@@ -1,4 +1,6 @@
 @import '../../global.scss';
+@import '../../responsive/breakpoints.scss';
+
 
 .projects {
   //background: rgb(175, 111, 111);
@@ -8,30 +10,42 @@
   flex-direction: column;
   padding: 0;
   margin: 0;
-  .section-title {
-      @include sectionTitle;
-      //background: blue;
-      margin: 0;
-      z-index: 2;
+  @include media("<=bigPhone") {
+    height: auto;
   }
+  
+
+  
   .wrapper {
     z-index: 2;
-
     margin: 0;
-    .project-title {
-      @include projectTitle;
-      margin: 0 0 em 0;
-      padding: 0;
-      //background: blue;
-    }
     height: 90%;
     width: 50%;
     display: flex;
     align-items: center;
     flex-direction: column;
-    //background: darkgoldenrod;
+    // background: darkgoldenrod;
+    box-sizing: border-box;
     padding: 1%;
     margin: 0;
+
+    @include media("<=bigPhone") {
+      width: 90%;
+      margin-bottom: 20px;
+      min-height: calc(100vh - 70px);
+
+    }
+    .project-title {
+      @include projectTitle;
+      margin: 0 0 1em 0;
+      padding: 0;
+      //background: blue;
+      @include media("<=bigPhone") {
+        margin: 25% 0 1em 0;
+
+      }
+    }
+    
     .preview-img {
       @include boxShadow;
       border-radius: 14px;
@@ -42,6 +56,10 @@
       align-items: center;
       z-index: 10;
       background-color: $navbarColor;
+      @include media("<=bigPhone") {
+        height: 30vh;
+  
+      }
       .project-img {
         object-fit: cover;
         max-width: 100%;
@@ -59,6 +77,10 @@
       align-items: center;
       z-index: 10;
       background-color: $navbarColor;
+      @include media("<=bigPhone") {
+        min-height: 30vh;
+  
+      }
       .project-video {
         object-fit: cover;
         height: 100%;
@@ -73,14 +95,36 @@
       width: 100%;
       height: auto;
       margin-top: 2%;
-      span {
-        font-size: .8em;
-        margin-right: 2em;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      @include media("<=bigPhone") {
+        justify-content: space-between;
+        margin : 10px 0 10px 0;
+
+      }
+      .stackDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 2em 2px 0;
         color: $titleColor;
         background: $techStackColor;
         border-radius: 5px;
-        padding: .5em 1em;
+        box-sizing: border-box;
+        padding: 8px 20px;
+          @include media("<=bigPhone") {
+            margin : 0 0 2px 0;
+            padding: 4px 10px;
+          }
+        span {
+          font-size: .8em;
+          @include media("<=bigPhone") {
+          font-size: .6em;
+            
+          }
+        }
       }
+      
 
     }
     .buttons {
@@ -89,7 +133,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 30%;
+      width: 300px;
+      @include media("<=bigPhone") {
+        width: 250px;
+        margin : 20px 0 20px 0;
+
+      }
       button {
         @include button;
         display: flex;
@@ -97,10 +146,16 @@
         justify-content: space-evenly;
         font-weight: 600;
         width: 45%;
+        @include media("<=bigPhone") {
+          font-size: 0.8em;
+        }
         .btn-icon {
           //margin-left: 5px;
           font-size: 1.5em;
           //background: red;
+          @include media("<=bigPhone") {
+            font-size: 1.2em;
+          }
         }
         
 
@@ -109,6 +164,9 @@
     .description {
       margin-top: 2%;
       color: $textColor;
+      @include media("<=bigPhone") {
+        font-size: .8em;
+      }
     }
 
   }

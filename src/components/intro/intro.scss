@@ -1,64 +1,108 @@
 @import '../../global.scss';
+@import '../../responsive/breakpoints.scss';
+
 
 .intro {
   width: 100%;
-  height: 100px;
   display: flex;
+  
+
 
   .left {
-    flex: 0.5;
+    flex: 1;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    //z-index: -1;
-    // .intro-shape{
-
-    //   width: 50%;
-    //   height: 500px;
-    //   background:rgb(190, 130, 130);
-    //   z-index: 2;
-    //   //border-radius: 100%;
-    //   //transform-origin: right;
-    // }
+    @include media("<=bigPhone") {
+      flex: 0;
+    }
   }
   .right {
-    flex: 0.5;
+    flex: 1;
     width: 100%;
     display: flex;
     align-items: center;
     z-index: 1;
+    
 
     .wrapper{
       display: inline-block;
-      //background: white;
+        // background: rgb(138, 128, 128);
       height: auto;
       margin-top: 0px;
       margin-bottom: 10%;
+      @include media("<=bigPhone") {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: calc(100vh - 70px);
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 5%;
+    }
       
+      .heythere{
+        color: $titleColor;
+        font-size: 1.5em;
+        margin: 0px;
+        // background: hotpink;
+        @include media("<=bigPhone") {
+          font-size: 2em;
+        }
+      }
+
       h1{
         font-size: 4em;
-        //background: green;
+        // background: green;
         margin-top: .5em;
         margin-bottom: 0px;
         color: $titleColor;
-      }
-      h2{
-        color: $titleColor;
+        @include media("<=bigPhone") {
         font-size: 3em;
-        margin: 0px;
-        //background: hotpink;
+          width: auto;
+          // margin-top: 53vh;
+          position: absolute;
+          bottom: 25%;
+          // position: absolute;
+          // right: 0;
+          // top: 25%;
+        }
       }
-      h3{
-        //background: red;
+
+      .frontend{
         font-weight: 500;
         font-size: 2em;
         margin: 0px;
         color: $buttonsColor;
+        @include media("<=bigPhone") {
+          width: auto;
+          font-size: 1.8em;
+           position: absolute;
+           bottom: 20%;
+
+          // top: 50%;
+          // right: 0;
+        }
         span {
           color : $specialColor;
         }
       }
+      .projects {
+        position: absolute;
+        bottom: 10%;
+        color: $textColor;
+      }
+      .arrow-icon {
+        font-size: 1.8em;
+        position: absolute;
+        bottom: 4%;
+        color: $textColor;
+      }
+    
     }
   }
 }
