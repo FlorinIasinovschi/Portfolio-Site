@@ -42,6 +42,11 @@
           width: 40%;
           }
       }
+      .submitState {
+        color: $specialColor;
+        margin-left: 5px;
+        
+      }
     }
     textarea {
       resize: none;
@@ -49,6 +54,7 @@
       border-radius: 5px;
       background: $techStackColor;
       border: 1px solid $textColor;
+      color: $titleColor;
     
     }
     .name, .email, .message {
@@ -61,8 +67,12 @@
       flex-direction: column;
       align-items: flex-start;
       color: $textColor;
+      
       @include media("<=bigPhone") {
         margin: 3vh 0 0 0;
+      }
+      .errors {
+        color: $specialColor;
       }
       input {
         background: $techStackColor;

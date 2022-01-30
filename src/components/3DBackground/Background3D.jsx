@@ -13,7 +13,7 @@ const Scene = (props) => {
   const objYDistance = 3;
   const sortingVisualizerDist = 2;
   const unsortedColor = "#330091"
-  const sortedColor = "#008a73"
+  const sortedColor = "#006352"
   const phoneWidth = props.phoneWidth
 
   // useHelper(pointLight, PointLightHelper, 1, "hotpink")
@@ -75,7 +75,7 @@ const Scene = (props) => {
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
         <Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+windowWidth, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
+        <Shape3D position={[+windowWidth - 0.1, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
         <Shape3D position={[+windowWidth - 0.2, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.6, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /> </>}
@@ -127,6 +127,9 @@ const Scene = (props) => {
       {/* INTERNAL RIM */}
       <pointLight position={[-4, -1 * objYDistance - 8.4, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
       <pointLight position={[4, -1 * objYDistance - 8.4, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
+
+      {/* SKILLS */}
+      <pointLight position={[0, -1 * objYDistance - 3, 2]} distance={5} intensity={7} color={"#ffffff"} />
 
       {/* CONTACT */}
       <pointLight position={[0, -1 * objYDistance - 10.2, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
