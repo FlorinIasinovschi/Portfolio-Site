@@ -44,6 +44,9 @@
         box-sizing: border-box;
         padding: 5%;
     }
+    @include media(">=bigPhone", "<=tablet") {
+      height: calc(100vh - 70px);
+    }
       
       .heythere{
         color: $titleColor;
@@ -52,6 +55,12 @@
         // background: hotpink;
         @include media("<=bigPhone") {
           font-size: 2em;
+        }
+        @include media(">=bigPhone", "<=tablet") {
+          width: auto;
+          font-size: 1.4em;
+           position: absolute;
+           top: 20%;
         }
       }
 
@@ -64,13 +73,15 @@
         @include media("<=bigPhone") {
         font-size: 3em;
           width: auto;
-          // margin-top: 53vh;
           position: absolute;
           bottom: 25%;
-          // position: absolute;
-          // right: 0;
-          // top: 25%;
         }
+        @include media(">=bigPhone", "<=tablet") {
+          width: auto;
+          position: absolute;
+          bottom: 45%;
+        }
+        
       }
 
       .frontend{
@@ -80,12 +91,18 @@
         color: $buttonsColor;
         @include media("<=bigPhone") {
           width: auto;
-          font-size: 1.8em;
+          font-size: 1.5em;
            position: absolute;
            bottom: 20%;
 
           // top: 50%;
           // right: 0;
+        }
+        @include media(">=bigPhone", "<=tablet") {
+          width: auto;
+          font-size: 1.8em;
+           position: absolute;
+           bottom: 35%;
         }
         span {
           color : $specialColor;

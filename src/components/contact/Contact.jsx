@@ -32,7 +32,7 @@ export default function Contact() {
             <FontAwesomeIcon icon={faLinkedin} className='btn-icon' />
 
           </div>
-          <div onClick={() => handleClick(linkedinURL)} className="iconcontainer">
+          <div onClick={() => handleClick(resumeURL)} className="iconcontainer">
             <FontAwesomeIcon icon={faFileAlt} className='btn-icon' />
 
           </div>

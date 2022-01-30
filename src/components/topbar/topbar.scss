@@ -24,6 +24,9 @@
       @include media("<=bigPhone") {
         width: 90%;
       }
+      @include media(">=bigPhone", "<=tablet") {
+        width: 80%;
+      }
 
       .left {
         position: absolute;
@@ -44,7 +47,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        //background: rgb(15, 72, 179);
+        // background: rgb(15, 72, 179);
         
 
         .nav-menu {
@@ -53,17 +56,22 @@
           display: flex;
           justify-content: space-between;
           align-items:center;
-          //background: yellowgreen;
+          // background: yellowgreen;
+          width: 50%;
           @include media("<=bigPhone") {
             display: none;
           }
           a {
             //background: palevioletred;
-            margin: 0 3rem 0 0;
+            margin: 0 0 0 0;
             font-size: 1.1em;
             font-weight: 600;
             text-decoration: none;
             color: $mainColor;
+            @include media(">=bigPhone", "<=tablet") {
+              font-size: 1em;
+
+            }
             &:hover {
               color: $specialColor;
             }

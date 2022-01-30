@@ -3,8 +3,6 @@ import '../../global.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import BlobAnimation from '../animations/BackgroundAnimation'
-import { blob1Path1, blob1Path2 } from '../data/svgData'
 import ReactPlayer from 'react-player';
 
 

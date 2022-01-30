@@ -22,6 +22,10 @@
       width: 90%;
       min-height: calc(70vh - 70px);
     }
+    @include media(">=bigPhone", "<=tablet") {
+      width: 80%;
+      min-height: calc(100vh - 70px);
+    }
     .subtitle {
       margin-top: 50px;
       color: $subTitleColor;
@@ -63,7 +67,7 @@
           margin: 0 0 0 0;
           color: $textColor;
           @include media("<=bigPhone") {
-            font-size: .8em;
+            font-size: .7em;
 
           }
         }

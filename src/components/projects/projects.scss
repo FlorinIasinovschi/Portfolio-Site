@@ -13,6 +13,10 @@
   @include media("<=bigPhone") {
     height: auto;
   }
+  @include media(">=bigPhone", "<=tablet") {
+    height: auto;
+
+  }
   
 
   
@@ -33,6 +37,13 @@
       width: 90%;
       margin-bottom: 20px;
       min-height: calc(100vh - 70px);
+
+    }
+    @include media(">=bigPhone", "<=tablet") {
+      width: 80%;
+      min-height: calc(100vh - 70px);
+      margin-bottom: 20%;
+
 
     }
     .project-title {
@@ -60,6 +71,7 @@
         height: 30vh;
   
       }
+     
       .project-img {
         object-fit: cover;
         max-width: 100%;
@@ -116,11 +128,17 @@
             margin : 0 0 2px 0;
             padding: 4px 10px;
           }
+          @include media(">=bigPhone", "<=tablet") {
+            padding: 6px 18px;
+
+          }
         span {
           font-size: .8em;
           @include media("<=bigPhone") {
           font-size: .6em;
-            
+          }
+          @include media(">=bigPhone", "<=tablet") {
+            font-size: .7em;
           }
         }
       }
@@ -167,6 +185,11 @@
       @include media("<=bigPhone") {
         font-size: .8em;
       }
+      @include media(">=bigPhone", "<=tablet") {
+        font-size: .9em;
+
+      }
+      
     }
 
   }

@@ -27,6 +27,10 @@
       min-height: calc(50vh - 70px);
       justify-content: flex-start;
     }
+    @include media(">=bigPhone", "<=tablet") {
+      width: 80%;
+      min-height: calc(100vh - 70px);
+    }
     
 
     .description {
