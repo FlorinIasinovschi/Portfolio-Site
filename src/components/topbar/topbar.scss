@@ -27,6 +27,10 @@
       @include media(">=bigPhone", "<=tablet") {
         width: 80%;
       }
+      @include media(">tablet","<LGdesktop") {
+        width: 70%;
+      }
+
 
       .left {
         position: absolute;

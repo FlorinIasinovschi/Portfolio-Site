@@ -12,9 +12,14 @@ import { useFrame } from '@react-three/fiber';
 import { useScrollPercentage } from 'react-scroll-percentage'
 
 
-const adminImg = "/videos/video_ecommerce.flv"
-const ecommerceVideo = "/images/projects_previews/admin_dashboard.jpg"
-const sortingImg = "/images/projects_previews/sorting_visualizer.jpeg"
+const ecommerceVideo = "/videos/video_ecommerce.mp4"
+const ecommerceURL = "https://florinecommerce.com/"
+const ecommerceCodeURL = "https://github.com/FlorinIasinovschi/e-commerce-site"
+
+const travelguideVideo = "/videos/video_travel_guide.mp4"
+const travelguideURL = "https://travelguidegeo.netlify.app/"
+const travelguideCodeURL = "https://github.com/FlorinIasinovschi/travel-guide"
+
 
 function App() {
 
@@ -49,8 +54,10 @@ function App() {
         <Intro className="section-intro" />
 
         <Projects title="E-commerce Site" techStack={techStackProject1} description={descriptionProject1}
-          video={ecommerceVideo} urlDemo="https://florinecommerce.com/" urlCode="https://github.com/FlorinIasinovschi/e-commerce-site" />
-        <Projects title="Sorting Visualizer" techStack={techStackProject2} description={descriptionProject2} previewImg={sortingImg} />
+          video={ecommerceVideo} urlDemo={ecommerceURL} urlCode={ecommerceCodeURL} />
+
+        <Projects title="Travel Guide" techStack={techStackProject2} description={descriptionProject2} video={travelguideVideo}
+          urlDemo={travelguideURL} urlCode={travelguideCodeURL} />
         <Skills />
         <About />
         <Contact />

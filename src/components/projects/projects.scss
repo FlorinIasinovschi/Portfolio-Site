@@ -43,9 +43,13 @@
       width: 80%;
       min-height: calc(100vh - 70px);
       margin-bottom: 20%;
-
-
     }
+    @include media(">tablet","<LGdesktop") {
+      width: 70%;
+      margin-bottom: 10%;
+    }
+    
+
     .project-title {
       @include projectTitle;
       margin: 0 0 1em 0;

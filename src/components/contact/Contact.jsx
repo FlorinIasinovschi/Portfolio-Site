@@ -20,7 +20,7 @@ export default function Contact() {
 
   return (
     <div className='contact' id='contact'>
-      <h2>Let's Work <span className='coloredspan' >Together!</span></h2>
+      <h2>Let's Get In <span className='coloredspan' >Touch!</span></h2>
 
       <div className="wrapper">
         <div className="iconswrapper">

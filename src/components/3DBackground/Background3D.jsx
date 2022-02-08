@@ -22,12 +22,17 @@ const Scene = (props) => {
   const [sortingPosX, setsortingPosX] = useState(2)
   const [windowFactor, setwindowFactor] = useState(0)
   const [scaleLen, setScaleLen] = useState(1)
+  const [dynamicY, setDynamicY] = useState(0)
+
+
 
   useEffect(() => {
     const handleWindowWidth = () => {
       setWindowWidth(window.innerWidth)
       setaspectRatio(window.innerWidth / window.innerHeight)
+      setDynamicY()
       console.log(aspectRatio)
+      console.log(window.innerHeight)
       //TO CHANGE POSITION OF 3D OBJECTS WHEN THE WIDTH IS SMALL
       // setwindowFactor(window.innerWidth / 100)
       // console.log(windowFactor)
@@ -36,10 +41,6 @@ const Scene = (props) => {
         setScaleLen()
         // console.log(windowWidth)
       }
-
-
-
-
     }
     handleWindowWidth()
 

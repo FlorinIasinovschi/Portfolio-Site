@@ -26,6 +26,9 @@
       width: 80%;
       min-height: calc(100vh - 70px);
     }
+    @include media(">tablet","<LGdesktop") {
+      width: 70%;
+    }
     .subtitle {
       margin-top: 50px;
       color: $subTitleColor;

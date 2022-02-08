@@ -27,7 +27,7 @@ export default function Projects({ title, techStack, description, previewImg, se
         {video &&
           <div className="preview-video">
             <ReactPlayer className="project-video"
-              url={"/videos/video_ecommerce.flv"}
+              url={video}
               width={"100%"}
               height={"100%"}
               playing={true}
