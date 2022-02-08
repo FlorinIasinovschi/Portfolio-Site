@@ -19,7 +19,6 @@ const Scene = (props) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [aspectRatio, setaspectRatio] = useState(window.innerWidth / window.innerHeight)
   const [sortingPosX, setsortingPosX] = useState(2)
-  const [windowFactor, setwindowFactor] = useState(0)
   const [dynamicY, setDynamicY] = useState(0)
   const [sortingVisualizerDist, setsortingVisualizerDist] = useState(2)
 
@@ -31,15 +30,27 @@ const Scene = (props) => {
       setaspectRatio(window.innerWidth / window.innerHeight)
       console.log("width : " + window.innerWidth + "height : " + window.innerHeight)
       console.log(aspectRatio)
+      setsortingPosX(window.innerWidth / window.innerHeight)
 
       //TO CHANGE POSITION OF 3D OBJECTS WHEN THE WIDTH IS SMALL
       // setwindowFactor(window.innerWidth / 100)
       // console.log(windowFactor)
       if (phoneWidth) {
         console.log("phoneWidth")
-        setDynamicY(1.1)
+        setDynamicY(aspectRatio * (window.innerHeight / 3) * 0.01)
 
       }
+
+
+
+
+      if (aspectRatio < 1.7 && window.innerWidth >= 1920) {
+        setDynamicY(aspectRatio - 1.1)
+        setsortingVisualizerDist(1.8)
+        console.log("small ratio");
+      }
+
+
       // HANDLING LAPTOP MONITORS / TABLETS / SMALLS SCREENS
       if (window.innerWidth < 1921 && !phoneWidth) {
         setsortingPosX(window.innerWidth / 1150)
@@ -51,8 +62,9 @@ const Scene = (props) => {
 
 
 
-        if (window.innerHeight >= 720) {
+        if (window.innerHeight >= 720 && window.innerHeight <= 800) {
           setDynamicY(1.2)
+          // setDynamicY(aspectRatio)
           setsortingVisualizerDist(1.6)
         }
         //FOR WIDE RATIOS
@@ -62,7 +74,8 @@ const Scene = (props) => {
 
         }
 
-        if (window.innerHeight >= 600 && window.innerWidth < 720) {
+
+        if (window.innerHeight >= 600 && window.innerHeight < 720) {
           setDynamicY(2.7)
           setsortingVisualizerDist(1)
         }
@@ -128,7 +141,7 @@ const Scene = (props) => {
       {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.7 - dynamicY, 1]} scale={[.15, 1.2, .2]}
         color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
 
-      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.3 + windowFactor - dynamicY, 0]} scale={[.15, 1.2, .2]}
+      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.3 - dynamicY, 0]} scale={[.15, 1.2, .2]}
         color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
 
 
@@ -207,11 +220,11 @@ export default function Background3D({ scrolling }) {
 
       if (window.innerWidth <= 500) {
         setcameraPhone(true)
-        console.log("small");
+        // console.log("phone");
       }
       else {
         setcameraPhone(false)
-        console.log("big");
+        // console.log("nophone");
 
       }
     }
@@ -227,36 +240,6 @@ export default function Background3D({ scrolling }) {
     const { camera } = useThree()
 
 
-    // useEffect(() => {
-    //   // camera.fov = 100
-
-    //   const handleResize = () => {
-
-    //     if (window.innerWidth > 1000) {
-
-
-
-    //         // window too large
-    //         const cameraHeight = Math.tan(MathUtils.degToRad(fov / 2));
-    //         const ratio = camera.aspect / aspectRatio;
-    //         const newCameraHeight = cameraHeight / ratio;
-    //         camera.fov = MathUtils.radToDeg(Math.atan(newCameraHeight)) * 2;
-
-
-    //         // window too narrow
-
-    //         // const cameraHeight = Math.tan(MathUtils.degToRad(fov / 2));
-    //         // const ratio = camera.aspect / aspectRatio;
-    //         // const newCameraHeight = cameraHeight / ratio;
-    //         // camera.fov = MathUtils.radToDeg(Math.atan(newCameraHeight)) * 2;
-
-
-    //       console.log(window.innerWidth)
-    //     }
-    //   }
-    //   window.addEventListener('resize', handleResize)
-    // })
-
     // This one makes the camera move with the scrolls
     useFrame(({ camera }) => {
       camera.position.y = - scrolling / window.innerHeight * objYDistance;
@@ -270,7 +253,7 @@ export default function Background3D({ scrolling }) {
 
     // camera={{ fov: 35, aspect: windowWidth / windowHeight, near: 0.1, far: 100, position: [0, -2 * scrolling, 6] }}
     >
-      <PerspectiveCamera fov={35} aspect={16 / 9} near={0.1} far={100} position={[0, -2 * scrolling, 6]} makeDefault={!cameraPhone} />
+      <PerspectiveCamera fov={35} aspect={windowWidth / windowHeight} near={0.1} far={100} position={[0, -2 * scrolling, 6]} makeDefault={!cameraPhone} />
       <PerspectiveCamera fov={35} aspect={windowWidth / windowHeight} near={0.1} far={100} position={[0, -2 * scrolling, 5]} makeDefault={cameraPhone} />
       <Dolly />
       <Scene phoneWidth={cameraPhone} />

@@ -12,7 +12,7 @@ export default function Contact() {
 
   const linkedinURL = "https://www.linkedin.com/in/floriniasinovschi/"
   const githubURL = "https://github.com/FlorinIasinovschi"
-  const resumeURL = "https://github.com/FlorinIasinovschi"
+  const resumeURL = "https://drive.google.com/file/d/19aRFpO8vway6bzCb4nZHMLihrf8_XW4u/view"
 
   const handleClick = (e) => {
     window.open(e)

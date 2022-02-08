@@ -27,7 +27,8 @@
     z-index: 2;
     width: 50%;
     display: flex;
-    //align-items: center;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
   //  background: rgb(146, 135, 128);
    @include media("<=bigPhone") {
@@ -45,13 +46,16 @@
     // margin-bottom: 10%;
   }
     .iconswrapper {
-      height: 450px;
-      width: 150px;
+      // height: 450px;
+      // width: 150px;
       //background-color: cadetblue;
-      position: absolute;
-      left: 0;
+      // left: 0;
+      // position: absolute;
       display: flex;
-      flex-direction: column;
+      width: 50%;
+      position: static;
+
+      // flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
       box-sizing: border-box;
