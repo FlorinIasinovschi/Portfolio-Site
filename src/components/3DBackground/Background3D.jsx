@@ -29,11 +29,14 @@ const Scene = (props) => {
     const handleWindowWidth = () => {
       setWindowWidth(window.innerWidth)
       setaspectRatio(window.innerWidth / window.innerHeight)
+      console.log("width : " + window.innerWidth + "height : " + window.innerHeight)
+      console.log(aspectRatio)
+
       //TO CHANGE POSITION OF 3D OBJECTS WHEN THE WIDTH IS SMALL
       // setwindowFactor(window.innerWidth / 100)
       // console.log(windowFactor)
       if (phoneWidth) {
-        console.log("diocane")
+        console.log("phoneWidth")
         setDynamicY(1.1)
 
       }
@@ -45,7 +48,6 @@ const Scene = (props) => {
         }
 
         if (window.innerHeight >= 720) {
-          console.log("plase")
           setDynamicY(1.2)
           setsortingVisualizerDist(1.6)
         }
@@ -53,7 +55,6 @@ const Scene = (props) => {
           setDynamicY(2.7)
           setsortingVisualizerDist(1)
         }
-        // console.log(windowWidth)
       }
     }
     handleWindowWidth()
