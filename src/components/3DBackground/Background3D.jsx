@@ -40,17 +40,28 @@ const Scene = (props) => {
         setDynamicY(1.1)
 
       }
-
+      // HANDLING LAPTOP MONITORS / TABLETS / SMALLS SCREENS
       if (window.innerWidth < 1921 && !phoneWidth) {
         setsortingPosX(window.innerWidth / 1150)
+
+        //FOR SORTING BARS
         if (window.innerWidth < 1920) {
           setsortingPosX(window.innerWidth / window.innerHeight)
         }
+
+
 
         if (window.innerHeight >= 720) {
           setDynamicY(1.2)
           setsortingVisualizerDist(1.6)
         }
+        //FOR WIDE RATIOS
+        if (aspectRatio > 1.8) {
+          setDynamicY(0.4 + aspectRatio)
+          setsortingVisualizerDist(1.2)
+
+        }
+
         if (window.innerHeight >= 600 && window.innerWidth < 720) {
           setDynamicY(2.7)
           setsortingVisualizerDist(1)
@@ -161,10 +172,10 @@ const Scene = (props) => {
       <pointLight position={[4, -1 * objYDistance - 8.4, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
 
       {/* SKILLS */}
-      <pointLight position={[0, -1 * objYDistance - 3, 2]} distance={5} intensity={7} color={"#ffffff"} />
+      <pointLight position={[0, -1 * objYDistance - 3 - dynamicY, 2]} distance={5} intensity={7} color={"#ffffff"} />
 
       {/* CONTACT */}
-      <pointLight position={[0, -1 * objYDistance - 10.2, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
+      <pointLight position={[0, -1 * objYDistance - 10.2 - dynamicY, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
 
 
 
