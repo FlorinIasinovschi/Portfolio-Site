@@ -11,7 +11,6 @@ import { PointLightHelper, MathUtils } from 'three';
 const Scene = (props) => {
   // const pointLight = useRef()
   const objYDistance = 3;
-  const sortingVisualizerDist = 2;
   const unsortedColor = "#330091"
   const sortedColor = "#006352"
   const phoneWidth = props.phoneWidth
@@ -21,8 +20,8 @@ const Scene = (props) => {
   const [aspectRatio, setaspectRatio] = useState(window.innerWidth / window.innerHeight)
   const [sortingPosX, setsortingPosX] = useState(2)
   const [windowFactor, setwindowFactor] = useState(0)
-  const [scaleLen, setScaleLen] = useState(1)
   const [dynamicY, setDynamicY] = useState(0)
+  const [sortingVisualizerDist, setsortingVisualizerDist] = useState(2)
 
 
 
@@ -30,15 +29,30 @@ const Scene = (props) => {
     const handleWindowWidth = () => {
       setWindowWidth(window.innerWidth)
       setaspectRatio(window.innerWidth / window.innerHeight)
-      setDynamicY()
-      console.log(aspectRatio)
-      console.log(window.innerHeight)
       //TO CHANGE POSITION OF 3D OBJECTS WHEN THE WIDTH IS SMALL
       // setwindowFactor(window.innerWidth / 100)
       // console.log(windowFactor)
-      if (window.innerWidth < 1921) {
+      if (phoneWidth) {
+        console.log("diocane")
+        setDynamicY(1.1)
+
+      }
+
+      if (window.innerWidth < 1921 && !phoneWidth) {
         setsortingPosX(window.innerWidth / 1150)
-        setScaleLen()
+        if (window.innerWidth < 1920) {
+          setsortingPosX(window.innerWidth / window.innerHeight)
+        }
+
+        if (window.innerHeight >= 720) {
+          console.log("plase")
+          setDynamicY(1.2)
+          setsortingVisualizerDist(1.6)
+        }
+        if (window.innerHeight >= 600 && window.innerWidth < 720) {
+          setDynamicY(2.7)
+          setsortingVisualizerDist(1)
+        }
         // console.log(windowWidth)
       }
     }
@@ -71,58 +85,58 @@ const Scene = (props) => {
 
       {/* SORTING VISUALIZER */}
       {/* LEFT */}
-      {windowWidth > 820 && <><Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
+      {windowWidth > 820 && <><Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - dynamicY, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
         color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.13, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
+        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.13 - dynamicY, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
           color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.26, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
+        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.26 - dynamicY, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
           color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
+        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.39 - dynamicY, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
           color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX + 0.2, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.6, .1, 0.3]}
+        <Shape3D position={[-sortingPosX + 0.2, -1 * objYDistance - sortingVisualizerDist - 0.52 - dynamicY, 0.7]} rotAxis="y" scale={[.6, .1, 0.3]}
           color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.9, .1, 0.3]}
+        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.65 - dynamicY, 0.7]} rotAxis="y" scale={[0.9, .1, 0.3]}
           color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /></>}
       {/* RIGHT */}
-      {windowWidth > 820 && <><Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
+      {windowWidth > 820 && <><Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - dynamicY, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
         color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.13, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
+        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.13 - dynamicY, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.26, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
+        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.26 - dynamicY, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.39, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
+        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.39 - dynamicY, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX - 0.1, -1 * objYDistance - sortingVisualizerDist - 0.52, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
+        <Shape3D position={[+sortingPosX - 0.1, -1 * objYDistance - sortingVisualizerDist - 0.52 - dynamicY, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX - 0.2, -1 * objYDistance - sortingVisualizerDist - 0.65, 0.7]} rotAxis="y" scale={[0.6, .1, 0.3]}
+        <Shape3D position={[+sortingPosX - 0.2, -1 * objYDistance - sortingVisualizerDist - 0.65 - dynamicY, 0.7]} rotAxis="y" scale={[0.6, .1, 0.3]}
           color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /> </>}
 
 
       {/* SKILLS */}
-      {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.7, 1]} scale={[.15, 1.2, .2]}
+      {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.7 - dynamicY, 1]} scale={[.15, 1.2, .2]}
         color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
 
-      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.3 + windowFactor, 0]} scale={[.15, 1.2, .2]}
+      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.3 + windowFactor - dynamicY, 0]} scale={[.15, 1.2, .2]}
         color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
 
 
       {/* ABOUT ME */}
-      <Shape3D position={[4, -1 * objYDistance - 8.4, -0.2]} scale={[0.5, 0.5, 0.5]}
+      <Shape3D position={[4, -1 * objYDistance - 8.4 - dynamicY, -0.2]} scale={[0.5, 0.5, 0.5]}
         color={"#00aa80"} speed={0.000} rotation={[0, 0, 0]} shape="torus" mat={"standard"} />
-      <Shape3D position={[-4, -1 * objYDistance - 8.4, -0.2]} scale={[0.5, 0.5, 0.5]}
+      <Shape3D position={[-4, -1 * objYDistance - 8.4 - dynamicY, -0.2]} scale={[0.5, 0.5, 0.5]}
         color={"#00aa80"} speed={0.000} rotation={[0, 0, 0]} shape="torus" mat={"standard"} />
 
       {/* CONTACT ME */}
       {/* WAVES */}
-      {<Shape3D position={[0, -1 * objYDistance - 13.4, 0]} scale={[1, 1, 1]}
+      {<Shape3D position={[0, -1 * objYDistance - 13.4 - dynamicY, 0]} scale={[1, 1, 1]}
         color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} />}
-      {<Shape3D position={[0, -1 * objYDistance - 13.4, -1]} scale={[1, 1.5, 1]}
+      {<Shape3D position={[0, -1 * objYDistance - 13.4 - dynamicY, -1]} scale={[1, 1.5, 1]}
         color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} />}
 
 
-      {/* {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 11.3, 0]} scale={[.5, 1, 1]}
+      {/* {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 13.4 - aspectRatio, 0]} scale={[.5, 1, 1]}
         color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} />}
-      {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 11.3, -1]} scale={[.8, 1.5, 1]}
+      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 13.4 - aspectRatio, -1]} scale={[.8, 1.5, 1]}
         color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} />} */}
 
 
