@@ -4,7 +4,7 @@ export const techStackProject1 =
 export const descriptionProject1 = `Full-stack MERN e-commerce site built from scratch. You can add and sort products based on type, size, and time of creation. You can register, log in and the cart will persist until you log out.
 Finally, you can use Stripe for checkout. The server api was set up
 using Nodejs and Express to fetch data from a MongoDB database and perform CRUD operations. React and styled-components were used to create the front end. JWT was 
-incorporated to secure payloads and verify users. Finally, Redux Toolkit was implemented to store the user's state and cart.`;
+incorporated to secure payloads and verify users. Finally, Redux Toolkit was implemented to store the user's state and cart. Deployed on a private VPS using Nginx.`;
 
 
 export const techStackProject2 =

@@ -50,3 +50,14 @@ $blobColor: rgb(102, 215, 243);
     }
 
 }
+
+@mixin webglIndividualBg {
+  // position: absolute;
+  background-color: #aba1f1;
+  height: 50vh;
+  width: 50vw;
+  
+  left: 0;
+ z-index: 2;
+
+}

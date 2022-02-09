@@ -3,6 +3,7 @@
 
 .contact {
 //background: lightcyan;
+  position : relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +11,17 @@
   @include media("<=bigPhone") {
     height: auto;
   }
+
+  .webglBg {
+    // @include webglIndividualBg;
+    background-color: bisque;
+    position: absolute;
+    top: 0;
+    height: 500px;
+    width: 500px;
+    z-index: 300;
+  }
+
   h2 {
     z-index: 2;
 

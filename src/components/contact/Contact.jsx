@@ -4,7 +4,7 @@ import Form from './Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faFileAlt } from "@fortawesome/free-solid-svg-icons"
-
+import ContactBg3D from '../3DBackground/Alternative/ContactBg3D';
 
 
 
@@ -20,6 +20,9 @@ export default function Contact() {
 
   return (
     <div className='contact' id='contact'>
+      <div className="wbglBg" >
+        {/* <ContactBg3D /> */}
+      </div>
       <h2>Let's Get In <span className='coloredspan' >Touch!</span></h2>
 
       <div className="wrapper">
