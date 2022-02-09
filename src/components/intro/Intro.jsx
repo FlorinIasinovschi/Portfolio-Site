@@ -21,7 +21,7 @@ export default function Intro() {
         <div className='wrapper'>
           <h2 className='heythere' >Hey there!</h2>
           <h1>I'm Florin</h1>
-          <h3 className='frontend' ><span >Front End </span>Developer</h3>
+          <h3 className='frontend' ><span >Full Stack </span>Developer</h3>
           <h2 className='projects' >Projects </h2>
           <FontAwesomeIcon icon={faChevronDown} className='arrow-icon' />
         </div>
