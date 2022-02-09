@@ -23,6 +23,9 @@ const travelguideCodeURL = "https://github.com/FlorinIasinovschi/travel-guide"
 
 function App() {
 
+  const [isMenu, setIsMenu] = useState(false)
+
+
   const [ref, percentage] = useScrollPercentage({
     /* Optional options */
     threshold: 0,
@@ -45,11 +48,27 @@ function App() {
   return (
 
     <div className="app">
+      {console.log(isMenu)}
+      <div className="menuOverlay" style={isMenu ? { opacity: "0.9", zIndex: '50' } : { opacity: "0.0", zIndex: '-1' }}>
+        <div className="menuContainer">
+          <div className="closeContainer" style={isMenu ? { transform: "translateX(0)" } : { transform: "translateX(50%)" }}>
+            <span onClick={() => setIsMenu(false)} >Close</span>
+
+          </div>
+          <div className="navsContainer" style={isMenu ? { transform: "translateX(0)" } : { transform: "translateX(50%)" }}>
+            <a href="#projects" onClick={() => setIsMenu(false)}>Projects</a>
+            <a href="#skills" onClick={() => setIsMenu(false)}>Skills</a>
+            <a href="#about" onClick={() => setIsMenu(false)}>About</a>
+            <a href="#contact" onClick={() => setIsMenu(false)}>Contact</a>
+          </div>
+
+        </div>
+      </div>
       <div className='webgl-background' >
         <Background3D scrolling={scroll} />
       </div >
 
-      < Topbar />
+      < Topbar setIsMenu={setIsMenu} />
       <div className="sections" ref={ref} onScroll={handleScroll}>
         <Intro className="section-intro" />
 

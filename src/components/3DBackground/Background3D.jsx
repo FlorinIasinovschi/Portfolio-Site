@@ -166,7 +166,7 @@ export default function Background3D({ scrolling }) {
   useEffect(() => {
     const handleWindowWidth = () => {
 
-      if (window.innerWidth <= 500) {
+      if (window.innerWidth <= 425) {
         setcameraPhone(true)
         // console.log("phone");
       }
