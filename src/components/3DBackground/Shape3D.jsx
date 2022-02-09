@@ -14,6 +14,8 @@ export default function Shape3D(props) {
   let rotSpeed = props.speed;
   let shape = props.shape;
   let mat = props.mat;
+  let waveSpeed = props.waveSpeed;
+  let waveDistort = props.waveDistort;
 
   // const { viewport } = useThree()
 
@@ -35,6 +37,7 @@ export default function Shape3D(props) {
     >
       {shape === "torusKnot" && <torusKnotGeometry args={[1.5, .4, 150, 40, 2, 3]} />}
       {shape === "box" && <boxGeometry args={[1, 1, 1]} />}
+      {shape === "octahedron" && <octahedronGeometry args={[1, 0]} />}
       {shape === "roundedbox" && <RoundedBox args={[1, 1, 1]} radius={0.1} smoothness={3} color={"#dd5757"} />}
       {shape === "sphere" && <sphereGeometry args={[2, 150, 150]} />}
       {shape === "cylinder" && <cylinderGeometry args={[1, 1, 10, 60, 150]} />}
@@ -47,7 +50,7 @@ export default function Shape3D(props) {
       {mat === "standard" && <meshStandardMaterial roughness={.7} color={props.color} />}
       {mat === "wood" && <meshStandardMaterial roughness={.7} color={props.color} />}
       {mat === "normal" && <meshNormalMaterial color={props.color} />}
-      {mat === "wave" && <MeshDistortMaterial attach="material" speed={.5} distort={0.5} roughness={1} color={props.color} />}
+      {mat === "wave" && <MeshDistortMaterial attach="material" speed={waveSpeed} distort={waveDistort} roughness={1} color={props.color} />}
       {/* <directionalLightHelper args={[light, 1]} /> */}
 
     </mesh>

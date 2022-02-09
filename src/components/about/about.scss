@@ -7,7 +7,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  
+
+  .webglBg {
+    @include webglIndividualBg;
+ }
+
+
   h2 {
     z-index: 2;
 

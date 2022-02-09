@@ -101,70 +101,18 @@ const Scene = (props) => {
       {phoneWidth && <Shape3D position={[0, 0 * objYDistance + .2, 0]} rotAxis="y" scale={[.25, .25, .25]} color={"#280068"}
         speed={0.004} rotation={[-.5, 0, 0]} shape="torusKnot" radius={[50]} mat={"standard"} />}
 
-      {/* PROJECTS */}
+      {/* PROJECT 1 */}
       <Shape3D position={[-4, -1 * objYDistance, -2]} rotAxis="y" scale={[0.3, .7, 0.3]}
         color={sortedColor} speed={0.007} rotation={[0, 0, -0.3]} shape="cone" mat={"normal"} />
       <Shape3D position={[3.5, -1 * objYDistance + 1, -1]} rotAxis="x" scale={[0.5, 0.5, 0.5]}
         color={sortedColor} speed={0.003} rotation={[0.5, 10, 10]} shape="dodecahedron" mat={"normal"} />
 
 
-      {/* SORTING VISUALIZER */}
-      {/* LEFT */}
-      {windowWidth > 820 && <><Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - dynamicY, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
-        color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.13 - dynamicY, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
-          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.26 - dynamicY, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
-          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.39 - dynamicY, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
-          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX + 0.2, -1 * objYDistance - sortingVisualizerDist - 0.52 - dynamicY, 0.7]} rotAxis="y" scale={[.6, .1, 0.3]}
-          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[-sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.65 - dynamicY, 0.7]} rotAxis="y" scale={[0.9, .1, 0.3]}
-          color={unsortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /></>}
-      {/* RIGHT */}
-      {windowWidth > 820 && <><Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - dynamicY, 0.7]} rotAxis="y" scale={[2.3, .1, 0.3]}
-        color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.13 - dynamicY, 0.7]} rotAxis="y" scale={[2, .1, 0.3]}
-          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.26 - dynamicY, 0.7]} rotAxis="y" scale={[1.4, .1, 0.3]}
-          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX, -1 * objYDistance - sortingVisualizerDist - 0.39 - dynamicY, 0.7]} rotAxis="y" scale={[1, .1, 0.3]}
-          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX - 0.1, -1 * objYDistance - sortingVisualizerDist - 0.52 - dynamicY, 0.7]} rotAxis="y" scale={[.9, .1, 0.3]}
-          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} />
-        <Shape3D position={[+sortingPosX - 0.2, -1 * objYDistance - sortingVisualizerDist - 0.65 - dynamicY, 0.7]} rotAxis="y" scale={[0.6, .1, 0.3]}
-          color={sortedColor} speed={0.00} rotation={[0, 0, 0]} shape="box" mat={"standard"} /> </>}
-
-
-      {/* SKILLS */}
-      {!phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.7 - dynamicY, 1]} scale={[.15, 1.2, .2]}
-        color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
-
-      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 4.3 - dynamicY, 0]} scale={[.15, 1.2, .2]}
-        color={"#2f00af"} speed={0.000} rotation={[0, 0, 1.57]} shape="cylinder" mat={"wave"} />}
-
-
-      {/* ABOUT ME */}
-      <Shape3D position={[4, -1 * objYDistance - 8.4 - dynamicY, -0.2]} scale={[0.5, 0.5, 0.5]}
-        color={"#00aa80"} speed={0.000} rotation={[0, 0, 0]} shape="torus" mat={"standard"} />
-      <Shape3D position={[-4, -1 * objYDistance - 8.4 - dynamicY, -0.2]} scale={[0.5, 0.5, 0.5]}
-        color={"#00aa80"} speed={0.000} rotation={[0, 0, 0]} shape="torus" mat={"standard"} />
-
-      {/* CONTACT ME */}
-      {/* WAVES */}
-      {/* {<Shape3D position={[0, -1 * objYDistance - 13.4 - dynamicY, 0]} scale={[1, 1, 1]}
-        color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} />}
-      {<Shape3D position={[0, -1 * objYDistance - 13.4 - dynamicY, -1]} scale={[1, 1.5, 1]}
-        color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} />} */}
-
-
-      {/* {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 13.4 - aspectRatio, 0]} scale={[.5, 1, 1]}
-        color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} />}
-      {phoneWidth && <Shape3D position={[0, -1 * objYDistance - 13.4 - aspectRatio, -1]} scale={[.8, 1.5, 1]}
-        color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} />} */}
-
-
+      {/* PROJECT 2 */}
+      <Shape3D position={[-3.5, -1.8 * objYDistance, -2]} rotAxis="y" scale={[0.5, .5, 0.5]}
+        color={sortedColor} speed={0.005} rotation={[0.1, 0, 0.2]} shape="box" mat={"standard"} />
+      <Shape3D position={[3, -1.8 * objYDistance, -1]} rotAxis="y" scale={[0.4, 0.7, 0.4]}
+        color={sortedColor} speed={0.003} rotation={[0.25, 0.1, 0]} shape="octahedron" mat={"normal"} />
 
 
       {/* <gridHelper args={[300, 300, 300]} /> */}

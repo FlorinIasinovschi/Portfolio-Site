@@ -1,8 +1,12 @@
+import AboutBg3D from '../3DBackground/Alternative/AboutBg3D'
 import './about.scss'
 
 export default function About() {
   return (
     <div className='about' id='about'>
+      <div className="webglBg" >
+        <AboutBg3D />
+      </div>
       <h2>About Me</h2>
       <div className='wrapper'>
 

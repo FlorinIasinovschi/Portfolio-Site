@@ -53,11 +53,11 @@ $blobColor: rgb(102, 215, 243);
 
 @mixin webglIndividualBg {
   // position: absolute;
-  background-color: #aba1f1;
-  height: 50vh;
-  width: 50vw;
-  
+  // background-color: #aba1f1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
   left: 0;
- z-index: 2;
+ z-index: 0;
 
 }

@@ -2,7 +2,7 @@
 @import '../../responsive/breakpoints.scss';
 
 .contact {
-//background: lightcyan;
+//  background: lightcyan;
   position : relative;
   display: flex;
   align-items: center;
@@ -13,13 +13,7 @@
   }
 
   .webglBg {
-    // @include webglIndividualBg;
-    background-color: bisque;
-    position: absolute;
-    top: 0;
-    height: 500px;
-    width: 500px;
-    z-index: 300;
+     @include webglIndividualBg;
   }
 
   h2 {

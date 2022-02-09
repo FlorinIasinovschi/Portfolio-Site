@@ -1,35 +1,44 @@
 import { useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { Canvas, } from '@react-three/fiber';
 import { PerspectiveCamera } from "@react-three/drei"
 import Shape3D from '../Shape3D';
 
 
-const Scene = (props) => {
+const Scene = () => {
+  const color = "#008665"
 
   return (
     <>
       <ambientLight intensity={1} />
 
-      {/* CONTACT ME */}
-      {/* WAVES */}
-      {<Shape3D position={[0, -2.5, 0]} scale={[1, 1, 1]}
-        color={"#21007a"} speed={0.000} rotation={[0, 0, 1.6]} shape="cylinder" mat={"wave"} waveSpeed={0.5} waveDistort={0.5} />}
-      {<Shape3D position={[0, -2.4, -1]} scale={[1, 1.5, 1]}
-        color={"#270094"} speed={0.000} rotation={[0.1, 0, 1.6]} shape="cylinder" mat={"wave"} waveSpeed={0.45} waveDistort={0.45} />}
+      {/* ABOUT ME */}
+      <Shape3D position={[4, 0, -0.2]} scale={[0.5, 0.5, 0.5]}
+        color={color} speed={0.000} rotation={[0, 0, 0]} shape="torus" mat={"standard"} />
+      <Shape3D position={[-4, 0, -0.2]} scale={[0.5, 0.5, 0.5]}
+        color={color} speed={0.000} rotation={[0, 0, 0]} shape="torus" mat={"standard"} />
 
-      {/* CONTACT */}
-      <pointLight position={[0, 1.5, -1]} distance={15} intensity={8} color={"#ffffff"} />
+      {/* TOP */}
+      <pointLight position={[0, 3, 2]} distance={7} intensity={3} color={"#ffffff"} />
+      {/* BACK */}
+      <pointLight position={[0, 0, -2.5]} distance={7} intensity={5} color={"#ffffff"} />
+      {/* FRONT */}
+      <pointLight position={[0, 0, 1.5]} distance={8} intensity={4} color={"#ffffff"} />
 
+      {/* INTERNAL RIM */}
+      <pointLight position={[-4, 0, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
+      <pointLight position={[4, 0, -1.2]} distance={7} intensity={5} color={"#ffffff"} />
     </>
   )
+
 }
 
+export default function AboutBg3D() {
 
-export default function ContactBg3D() {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
   const [cameraPhone, setcameraPhone] = useState(false)
+
 
   useEffect(() => {
     const handleWindowWidth = () => {

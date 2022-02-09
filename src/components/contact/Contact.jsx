@@ -20,8 +20,8 @@ export default function Contact() {
 
   return (
     <div className='contact' id='contact'>
-      <div className="wbglBg" >
-        {/* <ContactBg3D /> */}
+      <div className="webglBg" >
+        <ContactBg3D />
       </div>
       <h2>Let's Get In <span className='coloredspan' >Touch!</span></h2>
 

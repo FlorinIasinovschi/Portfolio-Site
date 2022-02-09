@@ -37,6 +37,8 @@
       width: 90%;
       margin-bottom: 20px;
       min-height: calc(100vh - 70px);
+    overflow: hidden;
+
 
     }
     @include media(">=bigPhone", "<=tablet") {
